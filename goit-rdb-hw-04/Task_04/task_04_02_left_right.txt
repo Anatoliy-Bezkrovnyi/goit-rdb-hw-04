@@ -1,0 +1,16 @@
+SELECT COUNT(*) AS rows_count
+FROM orders as o
+	RIGHT JOIN order_details as od ON o.id = od.order_id
+    LEFT JOIN customers as cus ON o.customer_id = cus.id
+    LEFT JOIN employees as em ON o.employee_id = em.employee_id
+    INNER JOIN shippers as ship ON o.shipper_id = ship.id    
+    RIGHT JOIN products as p ON od.product_id = p.id
+    LEFT JOIN categories as cat ON p.category_id = cat.id
+    INNER JOIN suppliers as sup ON p.supplier_id = sup.id
+
+
+Добрий день, саме в моєму прикладі не відбулось нічого :) Можливо я щось упустив
+Та зазвичай кількість рядків буде відрізнятись адже: 
+INNER JOIN - виводить спільне, тобто рядки, які присутні в обох таблицях та поєднуються згідно умови ON
+LEFT JOIN - виведе рядки таблиці що стоїть зліва від JOIN, якщо в правій таблиці такі рядки відсутні то їх атрибути будуть заповнені NULL
+RIGHT JOIN - виведе рядки таблиці що стоїть праворуч від JOIN, якщо в лівій таблиці такі рядки відсутні то їх атрибути будуть заповнені NULL

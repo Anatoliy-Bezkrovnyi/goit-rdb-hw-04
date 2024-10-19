@@ -1,0 +1,20 @@
+INSERT INTO authors (author_name)
+VALUES ('William Shakespeare'), ('J. K. Rowling'), ('Paulo Coelho');
+
+INSERT INTO genres (genre_name)
+VALUES ('play'), ('fantasy'), ('prose');
+
+INSERT INTO users (username, email)
+VALUES ('John', 'john@mail.com'), 
+('Bob', 'bob@mail.com'), 
+('Carl', 'carl@mail.com');
+
+INSERT INTO books (title, publication_year, author_id, genre_id)
+VALUES ('Macbeth', '2023-12-31', '1', '1'), 
+('Harry Potter and the Philosophers Stone', '2022-02-11', '2', '2'), 
+('The Alchemist', '2021-07-20', '3', '3');
+
+INSERT INTO borrowed_books (book_id, user_id, borrow_date, return_date)
+VALUES ('1', '1', '2022-02-11', '2022-03-11'), 
+('2', '2', '2023-05-21', '2023-08-11'), 
+('3', '3', '2024-11-11', '2024-12-30');

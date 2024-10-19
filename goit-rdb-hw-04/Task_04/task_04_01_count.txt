@@ -1,0 +1,9 @@
+SELECT COUNT(*) AS rows_count
+FROM orders as o
+	INNER JOIN order_details as od ON o.id = od.order_id
+    INNER JOIN customers as cus ON o.customer_id = cus.id
+    INNER JOIN employees as em ON o.employee_id = em.employee_id
+    INNER JOIN shippers as ship ON o.shipper_id = ship.id    
+    INNER JOIN products as p ON od.product_id = p.id
+    INNER JOIN categories as cat ON p.category_id = cat.id
+    INNER JOIN suppliers as sup ON p.supplier_id = sup.id

@@ -1,0 +1,19 @@
+SELECT o.id as order_id, o.date as order_date, 
+em.last_name as employee_last_name, em.first_name as employee_first_name,
+em.birthdate as employee_birthdate, em.photo as employee_photo, em.notes as employee_notes,
+cus.name as customer_name, cus.contact as customer_contact, cus.address as customer_address,
+cus.city as customer_city, cus.postal_code as customer_postal_code, cus.country as customer_country,
+cat.name as category_name, cat.description as category_description,
+p.name as product_name, p.unit as product_unit, p.price as product_price,
+od.quantity as product_quantity,
+sup.name as supplier_name, sup.contact as supplier_contact, sup.address as supplier_address, 
+sup.city as supplier_city, sup.postal_code as supplier_postal_code, sup.country as supplier_country, sup.phone as supplier_phone,
+ship.name as shipper_name, ship.phone as shipper_phone 
+FROM orders as o
+	INNER JOIN order_details as od ON o.id = od.order_id
+    INNER JOIN customers as cus ON o.customer_id = cus.id
+    INNER JOIN employees as em ON o.employee_id = em.employee_id
+    INNER JOIN shippers as ship ON o.shipper_id = ship.id    
+    INNER JOIN products as p ON od.product_id = p.id
+    INNER JOIN categories as cat ON p.category_id = cat.id
+    INNER JOIN suppliers as sup ON p.supplier_id = sup.id

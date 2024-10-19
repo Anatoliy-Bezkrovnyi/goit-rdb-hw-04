@@ -1,0 +1,9 @@
+SELECT  
+cat.name as category_name,
+COUNT(p.id) AS product_count,
+AVG(od.quantity) as avg_quantity_per_order
+FROM categories as cat
+	INNER JOIN products as p ON p.category_id = cat.id 
+	INNER JOIN order_details as od ON od.product_id = p.id
+GROUP BY category_name
+HAVING avg_quantity_per_order > 21;
